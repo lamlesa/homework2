@@ -140,6 +140,26 @@ namespace hw2
                 }
                 ean = 10 - (ean % 10);
                 Console.WriteLine($"EAN: {ean}");
+                line = "";
+                Console.WriteLine("для рандомных цифр: ");
+                Random n = new Random();
+                for (int j = 0; j < 12; j++)
+                {
+                    line += Convert.ToString(n.Next(10));
+                }
+                Console.WriteLine(line);
+                ean = 0;
+                for (int i = 1; i < line.Length; i += 2)
+                {
+                    ean += int.Parse(Convert.ToString(line[i]));
+                }
+                ean = ean * 3;
+                for (int i = 0; i < line.Length; i += 2)
+                {
+                    ean += int.Parse(Convert.ToString(line[i]));
+                }
+                ean = 10 - (ean % 10);
+                Console.WriteLine($"EAN: {ean}");
             }
             Console.WriteLine("");
             {
