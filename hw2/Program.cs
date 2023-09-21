@@ -72,7 +72,7 @@ namespace hw2
                 string pin = Console.ReadLine();
                 short p;
                 flag = short.TryParse(pin, out p);
-                if (!flag)
+                if (!flag | pin.Length != 4)
                 {
                     Console.Write("Введите свой пин-код ещё раз: ");
                     user.pin = Convert.ToInt16(Console.ReadLine());
@@ -131,12 +131,12 @@ namespace hw2
                 int ean = 0;
                 for (int i = 1; i < line.Length; i += 2 )
                 {
-                    ean += Convert.ToInt32(line[i]);
+                    ean += int.Parse(Convert.ToString(line[i]));
                 }
                 ean = ean * 3;
                 for (int i = 0; i < line.Length; i += 2)
                 {
-                    ean += Convert.ToInt32(line[i]);
+                    ean += int.Parse(Convert.ToString(line[i]));
                 }
                 ean = 10 - (ean % 10);
                 Console.WriteLine($"EAN: {ean}");
